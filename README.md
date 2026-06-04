@@ -50,7 +50,8 @@ Frontend (Angular)
 ├── Services
 ├── Guards
 ├── Models
-└── Shared
+├── Interceptor
+└── Security
 
 Backend (Spring Boot)
 │
