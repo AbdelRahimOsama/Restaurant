@@ -1,0 +1,93 @@
+<div class="page">
+  <div class="card">
+
+    <h2 class="title">➕ Add New Product</h2>
+
+    <form>
+
+      <!-- Name -->
+      <div class="form-group">
+        <label>Product Name</label>
+        <input
+          type="text"
+          placeholder="Enter product name"
+          #name
+          (input)="clearname()"
+        />
+        <div class="error" >
+          <div class="en" *ngIf="isnameValid">name is required</div>
+          <div class="ar" *ngIf="isnameValid">يجب ادخال اسم المنتج</div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label>Description</label>
+        <textarea
+          placeholder="Enter product description"
+          [(ngModel)]="textNoDescription"
+          name="description"
+          #description
+          (input)="cleardescription()"
+        ></textarea>
+        <div class="error" >
+          <div class="en" *ngIf="isDescriptionValid">description is required</div>
+          <div class="ar" *ngIf="isDescriptionValid">يجب ادخال وصف للمنتج</div>
+        </div>
+      </div>
+
+      <!-- Price -->
+      <div class="form-group">
+        <label>Price</label>
+        <input
+          type="number"
+          placeholder="Enter price"
+          #price
+          (input)="clearprice()"
+        />
+        <div class="error" >
+          <div class="en" *ngIf="isPriceValid">price is required</div>
+          <div class="ar" *ngIf="isPriceValid">يجب ادخال سعر للمنتج</div>
+        </div>
+      </div>
+
+      <!-- IMAGE -->
+      <div class="form-group">
+        <label>Choose Profile Image</label>
+        <input
+          type="file"
+          accept="image/*"
+          (change)="onFileSelected($event)"
+          (input)="clearimage()"
+          #image
+        />
+        <div class="error" >
+          <div class="en" *ngIf="isImageValid">Image is required</div>
+          <div class="ar" *ngIf="isImageValid">يجب اختيار صوره للمنتج</div>
+        </div>
+      </div>
+
+      <!-- Category -->
+      <div class="form-group">
+        <label>Category</label>
+        <select #categoryName (click)="clearcategory()">
+          <option disabled selected>Select category</option>
+          <div *ngFor="let cat of categories">
+            <option *ngIf="cat.name!='ALL'">{{cat.name}}</option>
+          </div>
+        </select>
+        <div class="error" >
+          <div class="en" *ngIf="isCategoryValid">Choose this product category</div>
+          <div class="ar" *ngIf="isCategoryValid">اختر فئة المنتج</div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button type="button" (click)="onSave(name,description,price,categoryName,image)">
+        Save Product
+      </button>
+
+    </form>
+
+  </div>
+</div>

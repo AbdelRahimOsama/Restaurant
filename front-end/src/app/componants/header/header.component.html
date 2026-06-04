@@ -1,0 +1,91 @@
+<div class="container-xxl position-relative p-0">
+  <nav class="navbar navbar-expand-lg navbar-dark custom-navbar px-4 px-lg-5 py-3">
+
+    <!-- Logo -->
+    <a routerLink="/products" class="navbar-brand">
+      <h1><i class="fa fa-utensils me-2"></i>Restoran</h1>
+    </a>
+
+    <!-- Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="fa fa-bars"></span>
+    </button>
+
+    <!-- Content -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+      <!-- Search -->
+      <div class="search-box mx-lg-4 my-3 my-lg-0" *ngIf="isUserLogIn() && IsShowMenu()">
+        <input class="form-control" type="search" placeholder="Search food..." #key (input)="search(key.value)">
+      </div>
+
+      <!-- Links -->
+      <div class="navbar-nav ms-auto align-items-lg-center">
+
+
+        <a
+          class="nav-link"
+          routerLink="/profile"
+          *ngIf="isUserLogIn()">
+          👋         {{ getUserName() }}
+        </a>
+        <a routerLink="/contact-info" class="nav-link" *ngIf="isUserLogIn()">Contact</a>
+        <a routerLink="/chefs" class="nav-link" *ngIf="isUserLogIn()">Team</a>
+
+        <a routerLink="/login" class="nav-link btn-login" *ngIf="!isUserLogIn()">Login</a>
+        <a class="nav-link btn-logout" *ngIf="isUserLogIn()" (click)="logOut()">Logout</a>
+        <!-- Action Dropdown -->
+        <div class="nav-item dropdown" *ngIf="isUserLogIn()">
+
+          <a
+            href="#"
+            class="nav-link dropdown-toggle action-btn"
+            data-bs-toggle="dropdown" >
+
+            Action
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-end action-menu">
+
+            <a
+              class="dropdown-item"
+              routerLink="/request-order"
+              (click)="ActionClick('RequestOrder')">
+              Request Order
+            </a>
+
+            <a
+              class="dropdown-item"
+              routerLink="/all-request-orders" *ngIf="isUserAdmin()"
+              (click)="ActionClick('RequestAllOrder')">
+              All Request Orders
+            </a>
+
+            <a
+              class="dropdown-item"
+              routerLink="/add-product" *ngIf="isUserAdmin()"
+              (click)="ActionClick('AddProduct')">
+              Add Product
+            </a>
+
+            <a
+              class="dropdown-item"
+              routerLink="/profile/update"
+              (click)="ActionClick('UpdateProfile')">
+
+              Update profile
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart -->
+    <app-card *ngIf="isUserLogIn()"></app-card>
+
+  </nav>
+
+  <!-- Hero -->
+  <div class="container-xxl hero-header"></div>
+</div>

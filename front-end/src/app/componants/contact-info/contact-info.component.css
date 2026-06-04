@@ -1,0 +1,85 @@
+/* container بتاع الرسالة */
+.error {
+  margin-top: 6px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(231, 76, 60, 0.08);
+  border-left: 3px solid #e74c3c;
+}
+
+/* الرسالة الإنجليزية */
+.error .en {
+  font-size: 13px;
+  color: #e74c3c;
+  font-weight: 500;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+/* الرسالة العربية */
+.error .ar {
+  font-size: 13px;
+  color: #e74c3c;
+  font-weight: 500;
+  direction: rtl;
+  text-align: right;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+/* animation بسيطة */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.not-found-wrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.msg-card.en-card {
+  background: #eef2ff;
+  border-left: 4px solid #4f46e5;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: #1e293b;
+  font-size: 14px;
+}
+
+.msg-card.ar-card {
+  background: #f0fdf4;
+  border-right: 4px solid #16a34a;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: #14532d;
+  font-size: 14px;
+  direction: rtl;
+  text-align: right;
+  font-family: "Cairo", sans-serif;
+}
+
+.msg-card {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.2s ease-in-out;
+}
+
+.msg-card:hover {
+  transform: translateY(-2px);
+}
+
+.success-message{
+  margin-top: 20px;
+  padding: 14px;
+  background: #d4edda;
+  color: #155724;
+  border-radius: 10px;
+  font-weight: bold;
+  animation: fadeIn 0.4s ease;
+}

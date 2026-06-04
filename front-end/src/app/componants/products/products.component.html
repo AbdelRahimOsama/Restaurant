@@ -1,0 +1,135 @@
+<div class="page-wrapper">
+  <div class="tab-content">
+    <div id="tab-1" class="tab-pane fade show p-0 active">
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-6" *ngFor="let prod of products">
+          <div class="d-flex align-items-center">
+            <img
+              [src]="
+            prod.imagePath?.startsWith('uploads/')
+            ? 'http://localhost:9090/' + prod.imagePath
+              : '/assets/img/' + prod.imagePath
+            "
+              class="flex-shrink-0 img-fluid rounded"
+              alt=""
+              style="width: 80px;"
+            >
+            <div class="w-100 d-flex flex-column text-start ps-4">
+              <h5 class="d-flex justify-content-between border-bottom pb-2">
+                <span>{{ prod.name }}</span>
+                <span class="text-primary">${{ prod.price }}</span>
+              </h5>
+              <small class="fst-italic">{{ prod.description }}</small>
+              <button type="button" class="btn btn-danger col-lg-6" (click)="addproducttoorder(prod)">ADD to Card
+              </button>
+              <div class="mt-2 d-flex gap-2" *ngIf="isUserAdmin()">
+
+                <!-- Edit -->
+                <button
+                  type="button"
+                  class="btn btn-warning btn-sm"
+                  (click)="editProduct(prod)">
+                  Edit
+                </button>
+
+                <!-- Delete -->
+                <button
+                  type="button"
+                  class="btn btn-danger btn-sm"
+                  (click)="deleteProduct(prod.id)">
+                  Delete
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9 pag" style="padding-left: 30%" *ngIf="products.length !== 0">
+          <ngb-pagination
+            [(page)]="page"
+            [pageSize]="pageLength"
+            [collectionSize]="orderSize"
+            [maxSize]="5"
+            [boundaryLinks]="true"
+            (pageChange)="doPagination()"
+          >
+          </ngb-pagination>
+          <!--                  "-->
+          <!--                  -->
+          <!--                  -->
+          <div class="sel">
+            <span class="mr-2">Page Size</span>
+            <select (change)="changePageSize($event)">
+              <option>2</option>
+              <option>5</option>
+              <option selected="true">10</option>
+              <option>20</option>
+              <option>50</option>
+            </select>
+          </div>
+        </div>
+        <div class="not-found-wrapper">
+          <div class="msg-card en-card" *ngIf="massage_en != ''">
+            <span>{{ massage_en }}</span>
+          </div>
+          <div class="msg-card ar-card" *ngIf="massage_ar != ''">
+            <span>{{ massage_ar }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay" *ngIf="showModal">
+
+    <div class="modal-box">
+
+    <span class="close-btn" (click)="closeModal()">
+      &times;
+    </span>
+
+      <h2>Edit Product</h2>
+
+      <p>Update product details</p>
+
+      <!-- Product Name -->
+      <input
+        type="text"
+        placeholder="Product Name"
+        [(ngModel)]="productEdit.name"
+        #name
+      />
+
+      <!-- Product Description -->
+      <textarea
+        placeholder="Product Description"
+        [(ngModel)]="productEdit.description"
+        #description
+      ></textarea>
+
+      <!-- Product Price -->
+      <input
+        type="number"
+        placeholder="Product Price"
+        [(ngModel)]="productEdit.price"
+        #price
+      />
+
+      <!-- Product Image -->
+      <div class="input-group">
+        <label>Choose Product Image</label>
+        <input
+          type="file"
+          accept="image/*"
+          (change)="onFileSelected($event)"
+        />
+      </div>
+
+      <button class="confirm-btn" (click)="updateProduct(name.value,description.value,price.value)">
+        Update Product
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

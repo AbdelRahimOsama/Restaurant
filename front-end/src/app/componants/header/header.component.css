@@ -1,0 +1,107 @@
+/* Navbar */
+.custom-navbar {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+/* Logo */
+.navbar-brand h1 {
+  font-size: 28px;
+  color: #ffb03b;
+  font-weight: bold;
+}
+
+/* Username */
+.username {
+  color: #fff;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Links */
+.navbar-nav .nav-link {
+  color: #fff !important;
+  margin: 0 8px;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffb03b !important;
+}
+
+/* Buttons */
+.btn-login {
+  border: 1px solid #ffb03b;
+  border-radius: 20px;
+  padding: 5px 15px;
+}
+
+.btn-login:hover {
+  background: #ffb03b;
+  color: #000 !important;
+}
+
+.btn-logout {
+  border: 1px solid red;
+  border-radius: 20px;
+  padding: 5px 15px;
+}
+
+.btn-logout:hover {
+  background: red;
+  color: #fff !important;
+}
+
+/* Search */
+.search-box input {
+  border-radius: 20px;
+  padding: 8px 15px;
+  border: none;
+  outline: none;
+  width: 220px;
+  transition: 0.3s;
+}
+
+.search-box input:focus {
+  width: 260px;
+  box-shadow: 0 0 10px rgba(255, 176, 59, 0.5);
+}
+
+/* Dropdown */
+.dropdown-menu {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dropdown-item:hover {
+  background: #ffb03b;
+  color: #000;
+}
+
+/* Hero */
+.hero-header {
+  height: 250px;
+  background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') center/cover no-repeat;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .search-box {
+    width: 100%;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .navbar-nav {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .username {
+    display: block;
+    margin-bottom: 10px;
+  }
+}

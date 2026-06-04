@@ -1,0 +1,107 @@
+<div class="container">
+
+  <!-- Left Side -->
+  <div class="left">
+    <div class="overlay">
+      <h1>🍽️ Foodie Restaurant</h1>
+      <p>Create your account and start managing your restaurant.</p>
+    </div>
+  </div>
+
+  <!-- Right Side -->
+  <div class="right">
+
+    <div class="login-box">
+
+      <h2>Register</h2>
+
+      <form #form="ngForm">
+
+        <!-- Username -->
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" name="username" placeholder="Enter your username" #username (input)="clearUsername()"/>
+
+          <div class="error" >
+            <div class="en" *ngIf="isUsernameValid">Username is required</div>
+            <div class="ar" *ngIf="isUsernameValid">يجب ادخال اسم المستخدم</div>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+          <label>Password</label>
+
+          <div class="password-wrapper">
+
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              placeholder="Enter your password"
+              required
+              #password
+              (input)="clearPassword()"
+            />
+
+            <span class="eye-icon" (click)="togglePassword()">
+             {{ showPassword ? '👁️' : '🙈' }}
+             </span>
+
+          </div>
+
+          <div class="error">
+            <div class="en" *ngIf="isPasswordValid">Password is required</div>
+            <div class="en" *ngIf="password.errors?.minlength">Password must be at least 6 characters</div>
+            <div class="ar" *ngIf="isPasswordValid">يجب ادخال رقم سري</div>
+          </div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="input-group">
+          <label>Confirm Password</label>
+          <div class="password-wrapper">
+          <input
+            [type]="showPassword2 ? 'text' : 'password'"
+            placeholder="Enter your password"
+            required
+            #confirmPassword
+            (input)="clearConfirmPassword()"
+          />
+
+          <span class="eye-icon" (click)="togglePassword2()">
+             {{ showPassword2 ? '👁️' : '🙈' }}
+             </span>
+          </div>
+
+          <div class="error">
+            <div class="en" *ngIf="isConfirmPasswordValid">Confirm Password is required</div>
+            <div class="en" *ngIf="isPasswordMatching">Passwords do not match</div>
+            <div class="ar" *ngIf="isConfirmPasswordValid">يجب تأكيد الرقم السري</div>
+          </div>
+        </div>
+
+        <!-- Button -->
+        <button type="submit" (click)="createCustomer(username.value,password.value,confirmPassword.value)">
+          Register
+        </button>
+
+        <div class="not-found-wrapper" *ngIf="massage_ar != '' || massage_en != ''" >
+          <div class="msg-card en-card">
+            <span>{{massage_en}}</span>
+          </div>
+          <div class="msg-card ar-card">
+            <span>{{massage_ar}}</span>
+          </div>
+        </div>
+
+      </form>
+
+      <p class="register">
+        Already have an account?
+        <a routerLink="/login">Login</a>
+      </p>
+
+    </div>
+
+  </div>
+
+</div>

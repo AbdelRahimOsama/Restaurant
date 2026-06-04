@@ -1,0 +1,47 @@
+<div class="container-fluid footer">
+  <div class="container py-5">
+    <div class="row g-5">
+
+      <!-- Logo & Description -->
+      <div class="col-lg-4 col-md-6">
+        <h4 class="footer-title">
+          <i class="fa fa-utensils me-2"></i> Restoran
+        </h4>
+        <p>
+          Enjoy the best food experience with us. Fresh ingredients, fast delivery,
+          and amazing taste!
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-4 col-md-6">
+        <h4 class="footer-title">Quick Links</h4>
+        <a routerLink="/products" *ngIf="isUserLogIn()">Menu</a>
+        <a routerLink="/contact-info"*ngIf="isUserLogIn()">Contact</a>
+        <a routerLink="/chefs"*ngIf="isUserLogIn()">Our Team</a>
+        <a routerLink="/login"*ngIf="!isUserLogIn()">Login</a>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-lg-4 col-md-6">
+        <h4 class="footer-title">Contact</h4>
+        <p><i class="fa fa-map-marker-alt me-2"></i> Cairo, Egypt</p>
+        <p><i class="fa fa-phone-alt me-2"></i> +20 123 456 789</p>
+        <p><i class="fa fa-envelope me-2"></i> info@restaurant.com</p>
+
+        <!-- Social Icons -->
+        <div class="social-icons mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="footer-bottom text-center">
+    © All Rights Reserved | Restaurant
+  </div>
+</div>

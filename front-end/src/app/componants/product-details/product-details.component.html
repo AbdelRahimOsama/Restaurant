@@ -1,0 +1,17 @@
+<div class="container">
+
+  <h2>Product Details</h2>
+
+  <input type="number" placeholder="Product ID" [(ngModel)]="productId">
+
+  <input type="text" placeholder="Ingredients" [(ngModel)]="details.ingredients">
+
+  <input type="text" placeholder="Calories" [(ngModel)]="details.calories">
+
+  <input type="text" placeholder="Size" [(ngModel)]="details.size">
+
+  <textarea placeholder="Description" [(ngModel)]="details.description"></textarea>
+
+  <button (click)="addDetails()">Add</button>
+
+</div>

@@ -1,0 +1,24 @@
+server:
+  port : 9090
+spring:
+  application:
+    name: resturant904
+  datasource:
+    driver-class-name : oracle.jdbc.OracleDriver
+    url : jdbc:oracle:thin:@//localhost:1522/orclpdb
+    username: resturant
+    password : hr
+  jpa:
+    hibernate :
+      ddl-auto : update
+    show-sql : true
+  messages:
+    basename: i18n/messages
+    default: ar
+  security:
+    user:
+      name: abdo
+      password: abdo123
+token:
+  secret : AbdelRahimSuperSecureJwtSecretKeyForSpringBoot2026!!
+  time : 24h

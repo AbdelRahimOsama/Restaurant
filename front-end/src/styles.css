@@ -1,0 +1,36 @@
+/* إزالة الفراغات والإطار الرمادي */
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Angular Root */
+
+app-root {
+  display: block;
+  width: 100%;
+}
+
+/* Wrapper الرئيسي */
+
+.app-wrapper {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* مهم جداً */
+.container,
+.container-fluid,
+.container-xxl {
+  max-width: 100% !important;
+}
+
+/* منع أي عنصر يطلع بره الشاشة */
+
+* {
+  box-sizing: border-box;
+}

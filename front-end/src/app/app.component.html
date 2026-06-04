@@ -1,0 +1,64 @@
+<div class="app-wrapper bg-white p-0">
+
+  <!-- Spinner Start -->
+  <div
+    id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+  >
+    <div
+      class="spinner-border text-primary"
+      style="width: 3rem; height: 3rem;"
+      role="status"
+    >
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <!-- Spinner End -->
+
+  <!-- Header -->
+  <app-header></app-header>
+
+  <!-- Menu -->
+  <div class="py-5" *ngIf="isLogIn()">
+
+    <div class="container">
+
+      <div
+        class="text-center wow fadeInUp"
+        data-wow-delay="0.1s"
+      >
+        <h5
+          class="section-title ff-secondary text-center text-primary fw-normal"
+          *ngIf="IsShowMenu()"
+        >
+          Food Menu
+        </h5>
+      </div>
+
+      <div
+        class="tab-class text-center wow fadeInUp"
+        data-wow-delay="0.1s"
+        *ngIf="IsShowMenu()"
+      >
+        <app-category></app-category>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Pages -->
+  <router-outlet></router-outlet>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+
+  <!-- Back To Top -->
+  <a
+    href="#"
+    class="btn btn-lg btn-primary btn-lg-square back-to-top"
+  >
+    <i class="bi bi-arrow-up"></i>
+  </a>
+
+</div>

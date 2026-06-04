@@ -1,0 +1,75 @@
+<div class="login-container">
+
+  <div class="left">
+
+    <div class="overlay">
+      <h1>🍽️ Foodie Restaurant</h1>
+      <p>Welcome back! Login to manage your restaurant.</p>
+    </div>
+
+  </div>
+
+  <!-- Right Side -->
+  <div class="right">
+
+    <div class="login-box">
+
+      <h2>Login</h2>
+
+      <form>
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" placeholder="Enter your username" required #username (input)="clearUsername()">
+          <div class="error">
+            <div class="en" *ngIf="isUsernameValid">Username is required</div>
+            <div class="ar" *ngIf="isUsernameValid">يجب ادخال اسم المستخدم</div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <div class="password-wrapper">
+
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              placeholder="Enter your password"
+              required
+              #password
+              (input)="clearPassword()"
+            />
+
+            <span class="eye-icon" (click)="togglePassword()">
+             {{ showPassword ? '👁️' : '🙈' }}
+             </span>
+
+          </div>
+          <div class="error">
+            <div class="en" *ngIf="isPasswordValid">Password is required</div>
+            <div class="ar" *ngIf="isPasswordValid">يجب ادخال رقم سري</div>
+          </div>
+        </div>
+
+        <button type="submit" (click)="checkCustomer(username.value,password.value)">
+          Login
+        </button>
+
+        <div class="not-found-wrapper" *ngIf="massage_ar != '' || massage_en != ''">
+          <div class="msg-card en-card">
+            <span>{{ massage_en }}</span>
+          </div>
+          <div class="msg-card ar-card">
+            <span>{{ massage_ar }}</span>
+          </div>
+        </div>
+      </form>
+
+      <p class="register">
+        Don't have an account?
+        <a routerLink="/signup">Register</a>
+      </p>
+
+    </div>
+
+  </div>
+
+</div>

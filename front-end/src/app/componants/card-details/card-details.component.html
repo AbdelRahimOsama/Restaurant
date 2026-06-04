@@ -1,0 +1,117 @@
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-4">
+        <h1 class="heading-section">Orders</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <!--					<h3 class="h5 mb-4 text-center">Table Accordion</h3>-->
+        <div class="table-wrap" *ngIf="totalSize>0">
+          <table class="table">
+            <thead class="thead-primary">
+            <tr>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th>name</th>
+              <th>description</th>
+              <th>price</th>
+              <th>add</th>
+              <th>quantity</th>
+              <th>remove</th>
+              <th>total</th>
+              <th>delete</th>
+              <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="alert" role="alert" *ngFor="let order of orders">
+              <td>
+                <label class="checkbox-wrap checkbox-primary">
+                </label>
+              </td>
+              <td>
+
+              </td>
+              <td>
+                <div class="email">{{ order.name }}</div>
+                <img class="img" [src]="
+                 order.imagePath?.startsWith('uploads/')
+                 ? 'http://localhost:9090/' + order.imagePath
+              : '/assets/img/' + order.imagePath
+            "/>
+              </td>
+              <td>
+                <div class="email">
+                  <span>{{ order.description }} </span>
+                </div>
+              </td>
+              <td>${{ order.price }}</td>
+              <td class="quantity">
+                <div class="input-group">
+                  <a href="#">
+                    <i class="fa fa-plus" (click)="plus(order)"></i>
+                  </a>
+                </div>
+              </td>
+              <td class="quantity">
+                <div class="input-group">
+                  <input disabled type="text" name="quantity" class="quantity form-control input-number"
+                         value="{{order.quantity}}" min="1" max="100">
+                </div>
+              </td>
+              <td class="quantity">
+                <div class="input-group">
+                  <a href="#">
+                    <i class="fa fa-minus" (click)="minus(order)"></i>
+                  </a>
+                </div>
+              </td>
+              <td>${{ order.quantity * order.price }}</td>
+              <td>
+                <button type="button" class="close" aria-label="Close" (click)="removeOreder(order)">
+                  X
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-success col-12" (click)="doneOrder()">Take Order</button>
+        </div>
+        <div class="empty-orders" *ngIf="totalSize==0">
+          لا يوجد أي طلب حتى الآن
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal-overlay" *ngIf="showModal">
+
+    <div class="modal-box">
+
+    <span class="close-btn" (click)="closeModal()">
+      &times;
+    </span>
+
+      <h2>Track Your Order</h2>
+
+      <p>Enter your table number</p>
+
+      <input
+        type="number"
+        placeholder="Table Number"
+        [(ngModel)]="tableNumber"
+      />
+
+      <button class="confirm-btn" (click)="confirmTable()">
+        Confirm
+      </button>
+
+    </div>
+
+  </div>
+  <div class="success-message" *ngIf="showSuccess">
+    ✅ Your order has been sent successfully!
+  </div>
+</section>

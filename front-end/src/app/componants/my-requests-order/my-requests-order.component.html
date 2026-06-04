@@ -1,0 +1,97 @@
+<div class="header">
+  <h2>🍽️ Order Summary</h2>
+</div>
+<div *ngIf="orders.length !== 0">
+  <div class="order-container" *ngFor="let order of orders">
+
+    <div class="header">
+      <p *ngIf="showOrderBy">Ordered By : {{order.customerName}}</p>
+      <p class="code">
+        Order Code: <span>{{ order.code }}</span>
+      </p>
+    </div>
+
+    <div class="info-card">
+      <div>
+        <span>Table</span>
+        <strong>#{{ order.tableNumber }}</strong>
+      </div>
+
+      <div>
+        <span>Date</span>
+        <strong>{{ order.atdate | date:'medium' }}</strong>
+      </div>
+
+      <div>
+        <span>Total Items</span>
+        <strong>{{ order.totalNumber }}</strong>
+      </div>
+
+    </div>
+
+    <div class="items">
+
+      <h3>Items</h3>
+
+      <div class="item" *ngFor="let item of order.orderItems">
+
+        <div class="item-left">
+
+          <img [src]="'/assets/img/' + item.product.imagePath"/>
+
+          <div>
+            <h4>{{ item.product.name }}</h4>
+            <p>{{ item.product.description }}</p>
+          </div>
+
+        </div>
+
+        <div class="item-right">
+
+          <p class="qty">Qty: {{ item.quantity }}</p>
+
+          <p class="unit-price">
+            Unit: ${{ item.product.price }}
+          </p>
+
+          <p class="price">
+            Total: ${{ item.product.price * item.quantity }}
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <h2>Total: {{ order.totalPrice }} EGP</h2>
+    </div>
+  </div>
+</div>
+<div class="empty-orders" *ngIf="orders.length==0"> لا يوجد أي طلب حتى الآن
+</div>
+<div class="col-md-9 pag" style="padding-left: 30%" *ngIf="orders.length !== 0">
+  <ngb-pagination
+    [(page)]="page"
+    [pageSize]="pageLength"
+    [collectionSize]="orderSize"
+    [maxSize]="5"
+    [boundaryLinks]="true"
+    (pageChange)="doPagination()"
+  >
+  </ngb-pagination>
+  <!--                  "-->
+  <!--                  -->
+  <!--                  -->
+  <div class="sel">
+    <span class="mr-2">Page Size</span>
+    <select  (change)="changePageSize($event)">
+      <option>2</option>
+      <option>5</option>
+      <option selected="true">2</option>
+      <option>20</option>
+      <option>50</option>
+    </select>
+  </div>
+</div>

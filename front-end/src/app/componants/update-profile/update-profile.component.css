@@ -1,0 +1,167 @@
+body {
+  background: #f4f6f9;
+  font-family: Arial, sans-serif;
+}
+
+/* PAGE WRAPPER */
+.page {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* CARD */
+.card {
+  width: 900px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.header h2 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #d39e00;
+  text-align: center;
+}
+
+/* PROFILE IMAGE */
+.profile-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.image-wrapper {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #00bcd4;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* TITLE */
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 20px 0;
+  color: #2d3748;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 13px;
+  color: #718096;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea {
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  background: #f8fafc;
+  transition: 0.2s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #00bcd4;
+  background: #fff;
+}
+
+/* FILE INPUT */
+input[type="file"] {
+  padding: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+/* ACTIONS */
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+/* SAVE BUTTON */
+.btn.save {
+  background: #00bcd4;
+  color: white;
+}
+
+.btn.save:hover {
+  background: #0097a7;
+}
+
+/* CANCEL BUTTON */
+.btn.cancel {
+  background: #e2e8f0;
+  color: #2d3748;
+}
+
+.btn.cancel:hover {
+  background: #cbd5e0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

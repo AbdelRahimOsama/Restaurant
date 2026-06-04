@@ -1,0 +1,27 @@
+package com.spring.resturant.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+public class ChefDto {
+
+    private Long id;
+
+    private String name;
+
+    private String spec;
+
+    private String logoPath;
+
+    private String faceLink;
+
+    private String tweLink;
+
+    private String instaLink;
+}

@@ -1,0 +1,58 @@
+<div class="profile-wrapper" *ngIf="customerDetails.id!=null">
+
+  <div class="profile-card">
+
+    <!-- LEFT SIDE -->
+    <div class="profile-left">
+      <img
+        class="avatar-img"
+        [src]="'http://localhost:9090/' + customerDetails.imagePath"
+        alt="Profile Image"
+      />
+
+      <h3 class="name">{{ customerDetails.name }}</h3>
+      <p class="role"> @{{getUserName()}}</p>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="profile-right">
+
+      <h2 class="title">Personal Information</h2>
+
+      <div class="info-grid">
+
+        <div class="info-item">
+          <span>Email</span>
+          <p>{{ customerDetails.email }}</p>
+        </div>
+
+        <div class="info-item">
+          <span>Phone</span>
+          <p>{{ customerDetails.phone }}</p>
+        </div>
+
+        <div class="info-item">
+          <span>Age</span>
+          <p>{{ customerDetails.age }}</p>
+        </div>
+
+        <div class="info-item full">
+          <span>Address</span>
+          <p>{{ customerDetails.address }}</p>
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <button class="btn update" (click)="onUpdate()">Update Profile</button>
+        <button class="btn" (click)="onBack()">Back</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<div class="header" *ngIf="customerDetails.id == null">
+  <button class="btn update" (click)="onUpdate()">Update Profile</button>
+</div>

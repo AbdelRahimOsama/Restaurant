@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+}
+
+/* Main Layout */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Left Side */
+.left {
+  width: 50%;
+  background: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836")
+  center/cover no-repeat;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.6);
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 20px;
+}
+
+.overlay h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.overlay p {
+  font-size: 18px;
+}
+
+/* Right Side */
+.right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f5f5f5;
+}
+
+/* Login Box */
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+
+  width: 350px;
+
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Input Group */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+
+  border-radius: 8px;
+  border: 1px solid #ccc;
+
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* Error Box */
+.error {
+  margin-top: 5px;
+  font-size: 12px;
+  color: red;
+}
+
+/* كل رسالة */
+.error span {
+  display: block;
+  width: 100%;
+}
+
+/* English text */
+.error .en {
+  text-align: left;
+  opacity: 0.9;
+}
+
+/* Arabic text */
+.error .ar {
+  text-align: right;
+  direction: rtl;
+
+  font-size: 11px;
+  color: #c0392b;
+}
+
+/* Input error style */
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+  background-color: #fff5f5;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #ff6b00;
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #e55d00;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Register text */
+.register {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.register a {
+  color: #ff6b00;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .left {
+    display: none;
+  }
+
+  .right {
+    width: 100%;
+  }
+}
+.not-found-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+  gap: 12px;
+}
+
+/* شكل الكارد */
+.msg-card {
+  padding: 12px 25px;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  min-width: 260px;
+  max-width: 420px;
+
+  text-align: center;
+
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+
+  transition: 0.2s;
+}
+
+/* English Card */
+.en-card {
+  background: #f1f5f9;
+  color: #334155;
+
+  border-left: 4px solid #f59e0b;
+}
+
+/* Arabic Card */
+.ar-card {
+  background: #fff7ed;
+  color: #ea580c;
+
+  direction: rtl;
+
+  border-right: 4px solid #ea580c;
+}
+
+/* hover effect لطيف */
+.msg-card:hover {
+  transform: translateY(-3px);
+}
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* مهم عشان العين ما تغطيش النص */
+  box-sizing: border-box;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
