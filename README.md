@@ -55,13 +55,15 @@ Frontend (Angular)
 
 Backend (Spring Boot)
 │
+├── config
+├── enums
+├── helper
 ├── Controllers
 ├── Services
 ├── Repositories
-├── Entities
+├── model
 ├── DTOs
-├── Mappers
-└── Security
+└── Mappers
 ```
 
 ## 🔐 Security
